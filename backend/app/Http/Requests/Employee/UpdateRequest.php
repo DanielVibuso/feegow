@@ -25,12 +25,29 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string', 'required'],
+            'name' => ['string'],
             'middle_name' => ['string'],
-            'last_name' => ['string', 'required'],
+            'last_name' => ['string'],
             'cpf' => [new CpfValidator(), Rule::unique(Employee::class)->ignore($this->route()->id)],
-            'birth_date' => ['required', 'date'],
-            'comorbidity' => ['required', 'boolean']
+            'birth_date' => ['date'],
+            'comorbidity' => ['boolean']
+        ];
+    }
+
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'email' => 'O :attribute fornecido não é válido.',
+            'string' => 'O :attribute deve ser um texto.',
+            'unique' => 'O :attribute já existe e não pode ser duplicado.',
+            'date' => 'O :attribute deve ser do tipo data.',
+            'boolean' => 'O :attribute deve ser do tipo true ou false.',
         ];
     }
 }

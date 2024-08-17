@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,8 +20,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//free routes/guest routes
+Route::prefix('auth')->name('auth.')->controller(AuthController::class)->group(function () {
+    Route::post('/login', 'login')->name('login');
+    Route::post('/forgot-password', 'forgotPassword')->name('forgot.password');
+    Route::post('/update-password', 'updatePassword')->name('update.password');
+});
+
 //employee
-Route::prefix('employee')->name('employee.')->controller(EmployeeController::class)->group(function () {
+Route::middleware('auth:sanctum')->prefix('employee')->name('employee.')->controller(EmployeeController::class)->group(function () {
     Route::put('/{id}', 'update')->name('update');
     Route::get('/', 'index')->name('index');/*->middleware('ability:sale.index');*/
     Route::get('/{id}', 'show')->name('show');
