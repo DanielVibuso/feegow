@@ -32,11 +32,17 @@ RUN pecl install -o -f redis \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable redis
 
+# Instale o Xdebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
 # Set working directory
 WORKDIR /var/www
 
 # Copy from the host to the container
 COPY ./backend .
+
+COPY ./docker/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Change ownership of the copied files
 RUN chown -R $user:$user /var/www

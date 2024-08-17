@@ -7,6 +7,7 @@ use App\Http\Requests\Employee\UpdateRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Services\EmployeeService;
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -42,6 +43,8 @@ class EmployeeController extends Controller
     {
         try{
             return new EmployeeResource($this->employeeService->show($id));
+        }catch(ModelNotFoundException $e){
+            return response()->json('employee not found', 404);
         }catch(Exception $e){
             Log::error($e->getMessage());
 
@@ -53,6 +56,8 @@ class EmployeeController extends Controller
     {
         try{
             return new EmployeeResource($this->employeeService->update($id, $request->validated()));
+        }catch(ModelNotFoundException $e){
+            return response()->json('employee not found', 404);
         }catch(Exception $e){
             Log::error($e->getMessage());
 
@@ -65,6 +70,8 @@ class EmployeeController extends Controller
         try{
             $this->employeeService->delete($id);
             return response()->noContent();
+        }catch(ModelNotFoundException $e){
+            return response()->json('employee not found', 404);
         }catch(Exception $e){
             Log::error($e->getMessage());
 
