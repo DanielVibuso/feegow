@@ -21,6 +21,7 @@ jobs:
         run: |
           cd backend
           composer install --prefer-dist --no-progress --no-suggest
+          php artisan key:generate
 
       - name: Run backend tests
         run: |
