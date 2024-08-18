@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('employee_lot', function (Blueprint $table) {
             $table->uuid('id')->primary()->index();
-            $table->foreignUuid('vaccine_id')->constrained()->onDelete('cascade');
+            $table->foreignUuid('employee_id')->constrained()->onDelete('cascade');
             $table->foreignUuid('lot_id')->constrained()->onDelete('cascade');
+            $table->date('applied_at');
+            $table->unsignedSmallInteger('shot_number');
+            $table->date('next_shot')->nullable()->comment('if null, then do not need');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

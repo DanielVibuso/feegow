@@ -21,7 +21,7 @@ class Employee extends Model
     {
         return $this->belongsToMany(Lot::class, 'employee_lot')
             ->using(EmployeeLot::class)
-            ->withPivot(['lot_id', 'employee_id'])
+            ->withPivot(['lot_id', 'employee_id', 'applied_at', 'shot_number', 'next_shot'])
             ->withTimestamps();
     }
 }
