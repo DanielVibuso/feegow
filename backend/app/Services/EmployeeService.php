@@ -19,7 +19,7 @@ class EmployeeService
 
     public function show(string $id) : Employee
     {
-        return $this->employeeRepository->getEmployeeById($id);
+        return $this->employeeRepository->getItemById($id);
     }
 
     public function store(array $newEmployeeData) : Employee

@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('lots', function (Blueprint $table) {
             $table->uuid('id')->primary()->index();
-            $table->string('cpf')->index();
-            $table->string('name');
-            $table->string('middle_name', 30)->nullable();
-            $table->string('last_name', 30);
-            $table->date('birth_date');
-            $table->boolean('comorbidity')->default(false);
+            $table->foreignUuid('vaccine_id')->constrained()->onDelete('cascade');
+            $table->string('lot_identify', 20);
+            $table->date('expiration');
+            $table->boolean('is_valid')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('lots');
     }
 };
