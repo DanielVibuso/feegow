@@ -14,4 +14,9 @@ class Vaccine extends Model
     use UsesUuid;
 
     protected $guarded = [];
+
+    public function lots()
+    {
+        return $this->hasMany(Lot::class);
+    }
 }

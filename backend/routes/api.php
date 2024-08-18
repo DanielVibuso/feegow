@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\LotController;
+use App\Http\Controllers\VaccineController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,8 +32,26 @@ Route::prefix('auth')->name('auth.')->controller(AuthController::class)->group(f
 //employee
 Route::middleware('auth:sanctum')->prefix('employee')->name('employee.')->controller(EmployeeController::class)->group(function () {
     Route::put('/{id}', 'update')->name('update');
-    Route::get('/', 'index')->name('index');/*->middleware('ability:sale.index');*/
+    Route::get('/', 'index')->name('index');
     Route::get('/{id}', 'show')->name('show');
-    Route::post('/', 'store')->name('store');/*->middleware('ability:sale.store');*/
-    Route::delete('/{id}', 'delete')->name('delete');/*->middleware('ability:sale.cancel');*/
+    Route::post('/', 'store')->name('store');
+    Route::delete('/{id}', 'delete')->name('delete');
+});
+
+//vaccine
+Route::middleware('auth:sanctum')->prefix('vaccine')->name('vaccine.')->controller(VaccineController::class)->group(function () {
+    Route::put('/{id}', 'update')->name('update');
+    Route::get('/', 'index')->name('index');
+    Route::get('/{id}', 'show')->name('show');
+    Route::post('/', 'store')->name('store');
+    Route::delete('/{id}', 'delete')->name('delete');
+});
+
+//lots
+Route::middleware('auth:sanctum')->prefix('lot')->name('lot.')->controller(LotController::class)->group(function () {
+    Route::put('/{id}', 'update')->name('update');
+    Route::get('/', 'index')->name('index');
+    Route::get('/{id}', 'show')->name('show');
+    Route::post('/', 'store')->name('store');
+    Route::delete('/{id}', 'delete')->name('delete');
 });

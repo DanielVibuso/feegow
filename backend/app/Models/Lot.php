@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Employee extends Model
+class Lot extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -17,9 +17,14 @@ class Employee extends Model
 
     protected $guarded = [];
 
-    public function lots(): BelongsToMany
+    public function vaccine()
     {
-        return $this->belongsToMany(Lot::class, 'employee_lot')
+        return $this->belongsTo(Vaccine::class);
+    }
+
+    public function employees(): BelongsToMany
+    {
+        return $this->belongsToMany(Employee::class, 'employee_lot')
             ->using(EmployeeLot::class)
             ->withPivot(['lot_id', 'employee_id'])
             ->withTimestamps();

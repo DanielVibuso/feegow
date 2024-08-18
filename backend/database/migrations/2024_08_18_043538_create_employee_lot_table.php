@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vaccines', function (Blueprint $table) {
+        Schema::create('employee_lot', function (Blueprint $table) {
             $table->uuid('id')->primary()->index();
-            $table->string('name', 60);
-            $table->unsignedSmallInteger('booster_interval')->default(0)->comment('if it is one shot only then zero will mean this');
-            $table->softDeletes();
+            $table->foreignUuid('vaccine_id')->constrained()->onDelete('cascade');
+            $table->foreignUuid('lot_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vaccines');
+        Schema::dropIfExists('employee_lot');
     }
 };
