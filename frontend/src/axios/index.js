@@ -24,6 +24,9 @@ export default {
   updateEmployee: (employeeId, employee) => {
     return axios.put(`/employee/${employeeId}`, employee);
   },
+  deleteEmployee: (employeeId) => {
+    return axios.delete(`/employee/${employeeId}`);
+  },
   getVaccine: (vaccineId) => {
     return axios.get(`/vaccine/${vaccineId}`);
   },
