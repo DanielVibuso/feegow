@@ -117,10 +117,12 @@ class EmployeeLotService
         $this->employeeRepository->getItemById($employee)->lots()->detach($lot);
     }
 
-    public function index(string $employee): LengthAwarePaginator
+    public function index(array $options, string $employee): LengthAwarePaginator
     {
         //TODO::repository? manual pagination on collection?
-        return EmployeeLot::where('employee_id', $employee)->paginate(15);
+        return EmployeeLot::where('employee_id', $employee)->when(isset($options['sort']), function ($query) use ($options) {
+            $query->orderBy($options['sort'], $options['order'] ?? 'asc');
+        })->paginate($options['perPage'] ?? 15);
     }
 
     public function update(array $newDataShoot, string $employee, string $lot)

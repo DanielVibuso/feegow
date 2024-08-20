@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class VaccineResource extends JsonResource
+class EmployeeLotResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,12 @@ class VaccineResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'booster_interval' => $this->booster_interval,
-            'lots' => LotResource::collection($this->lots)
+            'vaccine' => $this->lot->vaccine->name,
+            'employee' => $this->employee->name,
+            'lot_identify' => $this->lot->lot_identify,
+            'next_shot' => $this->next_shot,
+            'shot_number' => $this->shot_number,
+            'applied_at' => $this->applied_at,
         ];
     }
 }

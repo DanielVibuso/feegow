@@ -6,6 +6,7 @@ use App\Exceptions\EarlyToBoosterException;
 use App\Exceptions\LotExpiredException;
 use App\Exceptions\SingleShotException;
 use App\Http\Requests\EmployeeLot\StoreRequest;
+use App\Http\Resources\EmployeeLotResource;
 use App\Http\Resources\EmployeeResource;
 use App\Services\EmployeeLotService;
 use Exception;
@@ -46,10 +47,10 @@ class EmployeeLotController extends Controller
         }
     }
 
-    public function index(string $employee)
+    public function index(Request $request, string $employee)
     {
         try{
-            return new EmployeeResource($this->employeeLotService->index($employee));
+            return EmployeeLotResource::collection($this->employeeLotService->index($request->all(), $employee));
         }catch(Exception $e){
             Log::error($e->getMessage());
 

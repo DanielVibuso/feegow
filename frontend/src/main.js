@@ -9,10 +9,10 @@ import router from './router'
 import api from './axios'
 // Bootstrap
 import { BootstrapVue } from 'bootstrap-vue'
-import bootstrap from 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-// Vue Carousel
-import VueCarousel from 'vue-carousel'
+
+
 // Vuelidate
 import Vuelidate from 'vuelidate'
 // Vue Input Mask
@@ -20,9 +20,13 @@ import VueMask from 'v-mask'
 // Styles (CSS)
 import "./assets/css/styles.css"
 
+import mitt from 'mitt'
+
+const emitter = mitt()
+//avoiding props hell
+Vue.prototype.$emitter = emitter 
 Vue.prototype.$http = api
 
-Vue.use(VueCarousel)
 Vue.use(BootstrapVue)
 Vue.use(Vuelidate)
 Vue.use(VueMask)

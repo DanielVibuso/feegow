@@ -16,8 +16,9 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-#app 
-  width: 100%
-  height: 100%  
+<style scoped lang="css">
+#app{
+  width: 100%;
+  height: 100%;
+}  
 </style>

@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
             'name' => ['string'],
             'middle_name' => ['string'],
             'last_name' => ['string'],
-            'cpf' => [new CpfValidator(), Rule::unique(Employee::class)->ignore($this->route()->id)],
+            'cpf' => [new CpfValidator(),  'max:11', Rule::unique(Employee::class)->ignore($this->route()->id), 'regex:/^[0-9]+$/'],
             'birth_date' => ['date'],
             'comorbidity' => ['boolean']
         ];
@@ -48,6 +48,7 @@ class UpdateRequest extends FormRequest
             'unique' => 'O :attribute já existe e não pode ser duplicado.',
             'date' => 'O :attribute deve ser do tipo data.',
             'boolean' => 'O :attribute deve ser do tipo true ou false.',
+            'regex' => 'O :attribute possui formato invalido'
         ];
     }
 }

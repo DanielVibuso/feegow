@@ -13,16 +13,17 @@ class Repository
      */
     //public function __construct(protected Model $model)
    // {
-    //}
+   // }
 
     /**
-     * @return LengthAwarePaginator return the employees paginated
+     * @return LengthAwarePaginator return the model entity paginated
      */
     public function index(array $options): LengthAwarePaginator
     {
-        return $this->model->when(isset($options['sort']), function ($query) use ($options) {
-            $query->orderBy($options['sort'], $options['order'] ?? 'asc');
-        })->paginate($options['perPage'] ?? 15);
+        return $this->model->filterList($options)
+                           ->when(isset($options['sort']), function ($query) use ($options) {
+                                $query->orderBy($options['sort'], $options['order'] ?? 'asc');
+                            })->paginate($options['perPage'] ?? 15);
     }
 
     /**
