@@ -14,6 +14,10 @@ class LotResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'lot_identify' => $this->lot_identify,
+            'expiration' => $this->expiration,
+        ];
     }
 }
