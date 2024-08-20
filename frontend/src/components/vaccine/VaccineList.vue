@@ -1,11 +1,13 @@
 <template>
-  <div class="employee-booklet">
-      <VaccineItem v-for="vaccine in vaccines" :vaccine="vaccine" :key="vaccine.id" />
-  </div>
+  <div>
+    <div class="employee-booklet">
+        <VaccineItem v-for="vaccine in vaccines" :vaccine="vaccine" :key="vaccine.id" />
+    </div>
 
-  <div class="mt-2">
-      <button class="btn btn-success btn-prev" @click="getVaccines(currentPage - 1)" :disabled="!links.prev">Anterior</button>
-      <button class="btn btn-success " @click="getVaccines(currentPage + 1)" :disabled="!links.next">Próxima</button>
+    <div class="mt-2">
+        <button class="btn btn-success btn-prev" @click="getVaccines(currentPage - 1)" :disabled="!links.prev">Anterior</button>
+        <button class="btn btn-success " @click="getVaccines(currentPage + 1)" :disabled="!links.next">Próxima</button>
+    </div>
   </div>
 </template>
 
