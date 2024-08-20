@@ -31,7 +31,7 @@ Route::prefix('auth')->name('auth.')->controller(AuthController::class)->group(f
 });
 
 //employee
-Route::middleware('auth:sanctum')->prefix('employee')->name('employee.')->controller(EmployeeController::class)->group(function () {
+Route::/*middleware('auth:sanctum')->*/prefix('employee')->name('employee.')->controller(EmployeeController::class)->group(function () {
     Route::put('/{id}', 'update')->name('update');
     Route::get('/', 'index')->name('index');
     Route::get('/{id}', 'show')->name('show');
@@ -40,7 +40,7 @@ Route::middleware('auth:sanctum')->prefix('employee')->name('employee.')->contro
 });
 
 //employee lot controller
-Route::middleware('auth:sanctum')->prefix('employee-lot')->name('employee-lot.')->controller(EmployeeLotController::class)->group(function () {
+Route::/*middleware('auth:sanctum')->*/prefix('employee-lot')->name('employee-lot.')->controller(EmployeeLotController::class)->group(function () {
     Route::post('employee/{employee}/lot/{lot}', 'attach')->name('attach');
     Route::delete('employee/{employee}/lot/{lot}', 'detach')->name('detach');
     Route::put('{employee_lot_id}/lot-update/', 'update')->name('update');
@@ -48,7 +48,7 @@ Route::middleware('auth:sanctum')->prefix('employee-lot')->name('employee-lot.')
 });
 
 //vaccine
-Route::middleware('auth:sanctum')->prefix('vaccine')->name('vaccine.')->controller(VaccineController::class)->group(function () {
+Route::/*middleware('auth:sanctum')->*/prefix('vaccine')->name('vaccine.')->controller(VaccineController::class)->group(function () {
     Route::put('/{id}', 'update')->name('update');
     Route::get('/', 'index')->name('index');
     Route::get('/{id}', 'show')->name('show');
@@ -57,7 +57,7 @@ Route::middleware('auth:sanctum')->prefix('vaccine')->name('vaccine.')->controll
 });
 
 //lots
-Route::middleware('auth:sanctum')->prefix('lot')->name('lot.')->controller(LotController::class)->group(function () {
+Route::/*middleware('auth:sanctum')->*/prefix('lot')->name('lot.')->controller(LotController::class)->group(function () {
     Route::put('/{id}', 'update')->name('update');
     Route::get('/', 'index')->name('index');
     Route::get('/{id}', 'show')->name('show');
