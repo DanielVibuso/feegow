@@ -16,6 +16,7 @@ class LotResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'vaccine' => $this->vaccine->name,
             'lot_identify' => $this->lot_identify,
             'expiration' => $this->expiration,
         ];

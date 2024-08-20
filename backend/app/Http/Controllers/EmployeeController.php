@@ -17,6 +17,11 @@ class EmployeeController extends Controller
     {
     }
 
+    /**
+     * Cadastrar funcionário
+     * 
+     * Endpoint utilizado para cadastrar funcionários.
+     */
     public function store(StoreRequest $request)
     {
         try{
@@ -28,6 +33,12 @@ class EmployeeController extends Controller
         }
     }
 
+    /**
+     * Listar funcionários
+     * 
+     * Endpoint que retorna os funcionários de forma paginada, informar na url os query params possíveis para a paginação
+     * os quais são: per_page, page. também é possível filtrar pelo cpf, campo no qual foi criado índice para melhor performance
+     */
     public function index(Request $request)
     {
         try{
@@ -39,6 +50,11 @@ class EmployeeController extends Controller
         }
     }
 
+    /**
+     * Exibir funcionário
+     * 
+     * Exibe um funcionário, utilizando o id informado.
+     */
     public function show(String $id)
     {
         try{
@@ -52,6 +68,11 @@ class EmployeeController extends Controller
         }
     }
 
+    /**
+     * Atualizar funcionário
+     * 
+     * Atualiza os dados do funcionário informado
+     */
     public function update(String $id, UpdateRequest $request)
     {
         try{
@@ -65,6 +86,11 @@ class EmployeeController extends Controller
         }
     }
 
+    /**
+     * Deletar funcionário
+     * 
+     * Remove o usuário pertencente ao id informado
+     */
     public function delete(String $id)
     {
         try{

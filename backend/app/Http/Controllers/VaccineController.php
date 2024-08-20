@@ -18,6 +18,11 @@ class VaccineController extends Controller
     {
     }
 
+    /**
+     * Cadastrar vacina
+     * 
+     * Registra uma nova vacina
+     */
     public function store(StoreRequest $request)
     {
         try{
@@ -29,6 +34,9 @@ class VaccineController extends Controller
         }
     }
 
+    /**
+     * Lista todas as vacinas cadastradas
+     */
     public function index(Request $request)
     {
         try{
@@ -40,6 +48,11 @@ class VaccineController extends Controller
         }
     }
 
+    /**
+     * Exibir vacina
+     * 
+     * Exibe uma vacina pelo seu id
+     */
     public function show(String $id)
     {
         try{
@@ -53,6 +66,11 @@ class VaccineController extends Controller
         }
     }
 
+    /**
+     * atualizar vacina
+     * 
+     * Este endpoint atualiza a vacina com o id informado
+     */
     public function update(String $id, UpdateRequest $request)
     {
         try{
@@ -66,6 +84,11 @@ class VaccineController extends Controller
         }
     }
 
+    /**
+     * Deletar vacina
+     * 
+     * Este endpoint deleta a vacina informada
+     */
     public function delete(String $id)
     {
         try{

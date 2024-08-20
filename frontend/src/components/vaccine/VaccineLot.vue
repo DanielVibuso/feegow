@@ -48,10 +48,6 @@ export default {
 </script>
 
 <style scoped lang="css">
-  
-  .vaccine-lot{
-    cursor: pointer;
-    border: 1px solid;
-  }
+
 
 </style>

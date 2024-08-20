@@ -27,6 +27,19 @@ const emitter = mitt()
 Vue.prototype.$emitter = emitter 
 Vue.prototype.$http = api
 
+Vue.mixin({
+  methods: {
+    formatDateBrazilian(date) {
+      if (!date) return '';
+      return new Date(date).toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      });
+    }
+  }
+});
+
 Vue.use(BootstrapVue)
 Vue.use(Vuelidate)
 Vue.use(VueMask)

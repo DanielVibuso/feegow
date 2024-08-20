@@ -2,17 +2,15 @@
   <div id="app">
     <MenuLayout />
     <router-view :key="$route.fullPath"></router-view>
-    <FooterLayout />
   </div>
 </template>
 
 <script>
 import MenuLayout from './components/MenuLayout.vue'
-import FooterLayout from './components/FooterLayout.vue'
 
 export default {
   name: 'App',
-  components: { MenuLayout, FooterLayout },
+  components: { MenuLayout },
 }
 </script>
 

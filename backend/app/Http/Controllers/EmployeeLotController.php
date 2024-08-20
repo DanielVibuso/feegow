@@ -19,6 +19,12 @@ class EmployeeLotController extends Controller
     {
     }
 
+    /**
+     * Vincular funcionário à vacina
+     * 
+     * Este endpoint é utilizado para vincular um funcionário à uma vacina, através do seu lote.
+     * necessário informar o id do funcionário e do lote via url, e a data da aplicação no corpo da requisição
+     */
     public function attach(StoreRequest $storeRequest, string $employee, string $lot)
     {
         try{
@@ -32,10 +38,15 @@ class EmployeeLotController extends Controller
         }catch(Exception $e){
             Log::error($e->getMessage());
 
-            return response()->json('Attach lot shoot error', 422);
+            return response()->json('Attach lot shot error', 422);
         }
     }
 
+    /**
+     * Desvincular funcionário de vacina
+     * 
+     * Este endpoint remove o vinculo entre o funcionário e a vacina informada pelo id do lote
+     */
     public function detach(string $employee, string $lot)
     {
         try{
@@ -43,10 +54,14 @@ class EmployeeLotController extends Controller
         }catch(Exception $e){
             Log::error($e->getMessage());
 
-            return response()->json('Detach lot shoot error', 422);
+            return response()->json('Detach lot shot error', 422);
         }
     }
 
+    /**
+     * Este endpoint lista todas as vacinas vinculadas ao funcionário, aceitando os parametros de paginação 
+     * Ex: per_page, page. 
+     */
     public function index(Request $request, string $employee)
     {
         try{
@@ -54,10 +69,15 @@ class EmployeeLotController extends Controller
         }catch(Exception $e){
             Log::error($e->getMessage());
 
-            return response()->json('List lot shoot error', 422);
+            return response()->json('List lot shot error', 422);
         }
     }
 
+    /**
+     * Atualizar vinculo
+     * 
+     * Caso seja necessário, é possível atualizar um vinculo já existente.
+     */
     public function update(Request $request, string $employee, string $lot)
     {
         try{
@@ -65,7 +85,7 @@ class EmployeeLotController extends Controller
         }catch(Exception $e){
             Log::error($e->getMessage());
 
-            return response()->json('Update lot shoot error', 422);
+            return response()->json('Update lot shot error', 422);
         }
     }
 }
