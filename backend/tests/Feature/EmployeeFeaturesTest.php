@@ -43,8 +43,6 @@ class EmployeeFeaturesTest extends TestCase
                 'birth_date',
                 'comorbidity',
                 'id',
-                'created_at',
-                'updated_at',
             ],
         ]);
 
@@ -61,9 +59,6 @@ class EmployeeFeaturesTest extends TestCase
                     'last_name',
                     'birth_date',
                     'comorbidity',
-                    'deleted_at',
-                    'created_at',
-                    'updated_at'
                 ]
             ],
             'links' => [
@@ -126,8 +121,6 @@ class EmployeeFeaturesTest extends TestCase
                 'birth_date',
                 'comorbidity',
                 'id',
-                'created_at',
-                'updated_at',
             ],
         ]);
     }
@@ -198,8 +191,6 @@ class EmployeeFeaturesTest extends TestCase
                 'birth_date',
                 'comorbidity',
                 'id',
-                'created_at',
-                'updated_at',
             ],
         ]);
 
@@ -252,8 +243,6 @@ class EmployeeFeaturesTest extends TestCase
                 'birth_date',
                 'comorbidity',
                 'id',
-                'created_at',
-                'updated_at',
             ],
         ]);
 

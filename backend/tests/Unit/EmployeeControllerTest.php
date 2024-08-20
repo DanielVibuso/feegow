@@ -8,7 +8,7 @@ use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
 use App\Services\EmployeeService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
+use Illuminate\Support\Str;
 use Mockery;
 use Tests\TestCase;
 
@@ -34,6 +34,7 @@ class EmployeeControllerTest extends TestCase
     {
         // data to mock
         $employeeData = [
+            'id' => Str::uuid(),
             'name' => 'Daniel', 
             'middle_name' => 'Developer', 
             'last_name' => 'Da Silva', 
@@ -43,7 +44,10 @@ class EmployeeControllerTest extends TestCase
         ];
 
         //Arrange - mock Model Employee
-        $employee = Mockery::mock(Employee::class);
+        $employee = Mockery::mock(Employee::class)->makePartial();
+        $employee->shouldReceive('getAttribute')->andReturnUsing(function ($key) use ($employeeData) {
+            return $employeeData[$key];
+        });
         $employee->shouldReceive('toArray')->andReturn($employeeData);
 
 
