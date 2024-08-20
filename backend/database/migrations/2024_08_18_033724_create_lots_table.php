@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('lots', function (Blueprint $table) {
             $table->uuid('id')->primary()->index();
             $table->foreignUuid('vaccine_id')->constrained()->onDelete('cascade');
-            $table->string('lot_identify', 20);
+            $table->string('lot_identify', 20)->index();
             $table->date('expiration');
             $table->boolean('is_valid')->default(true);
             $table->softDeletes();

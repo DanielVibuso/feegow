@@ -1,6 +1,6 @@
 <template>
-  <div class="employee-booklet">
-      <EmployeeBookletItem v-for="vaccine in vaccines" :vaccine="vaccine" :key="vaccine.id" />
+  <div class="employee-booklet row">
+      <EmployeeBookletItem @click="getShots(employee)" v-for="shot in shots" :shot="shot" :key="shot.id" />
   </div>
 </template>
 
@@ -8,19 +8,50 @@
 import EmployeeBookletItem from './EmployeeBookletItem.vue';
 
 export default {
-    name: 'EmployeeBooklet',
-    props: ['employee'],
-    components: { EmployeeBookletItem },
-    data () {
+ name: 'EmployeeBooklet',
+ components: { EmployeeBookletItem },
+  data () {
     return {
-      vaccines: [{id:1, name:'coronavac', lot: 'AZX345', lot_validate: '2024-08-01', shot_number: 1, applied_at: '2023-05-01', next_shot: '2027-05-06'},
-                 {id:2, name:'coronavac', lot: 'AZX345', lot_validate: '2024-08-01', shot_number: 1, applied_at: '2023-05-01', next_shot: '2027-05-06'}],
+      employeeId: '',
+      shots: [],
+      meta: {},
+      links: {},
+      currentPage: 1,
+      perPage: 15
     }
   },
+  mounted() {
+    this.$emitter.on('employeeViewVaccinesClicked', (eventData) => {
+      console.log('Employee clicked:', eventData);
+      this.employeeId = eventData.employeeId;
+      this.getShots();
+
+    });
+  },
+  methods: {
+    async getShots (page = 1) {   
+      await this.$http.getShots(page, this.perPage, this.employeeId)
+        .then(response => {
+
+          this.shots = response.data.data;
+          this.meta = response.data.meta;
+          this.links = response.data.links;
+          this.currentPage = page;
+          console.log(this.shots)
+        })
+        .catch(error => {
+        console.log(error)
+      })     
+  }
+ }
 }
 </script>
 
 <style scoped lang="css">
- 
+  
+  .employee-item{
+    cursor: pointer;
+    border: 1px solid;
+  }
 
 </style>

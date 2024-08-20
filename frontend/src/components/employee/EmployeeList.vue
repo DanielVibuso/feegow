@@ -1,11 +1,20 @@
 <template>
-  <div class="d-flex flex-column user-list">    
-    <EmployeeItem v-for="employee in employees" :employee="employee" :key="employee.id" />
+  <div>
+  <div style="overflow-y: scroll; height: 80vh;">
+    <div class="">    
+      <EmployeeItem v-for="employee in employees" :employee="employee" :key="employee.id" :links="links" />
+    </div>
   </div>
-</template>
+  <div class="mt-2">
+      <button class="btn btn-success btn-prev" @click="getEmployees(currentPage - 1)" :disabled="!links.prev">Anterior</button>
+      <button class="btn btn-success " @click="getEmployees(currentPage + 1)" :disabled="!links.next">Próxima</button>
+  </div>
+</div>
+</template>   
 
 <script>
 import EmployeeItem from '@/components/employee/EmployeeItem.vue'
+
 
 export default {
   name: 'EmployeeList',
@@ -13,31 +22,25 @@ export default {
   data () {
     return {
       employees: [],
+      meta: {},
+      links: {},
+      currentPage: 1,
+      perPage: 15
     }
   },
   methods: {
-    async getEmployees () {     
-      await this.$http.getEmployees()
-      .then(response => {
-        this.employees = [{id: 1, name: 'Daniel', birthDate: '1995-05-03'}]
-        console.log(response.data)       
-      })
-      .catch(error => {
+    async getEmployees (page = 1) {     
+      await this.$http.getEmployees(page, this.perPage)
+        .then(response => {
+          this.employees = response.data.data;
+          this.meta = response.data.meta;
+          this.links = response.data.links;
+          this.currentPage = page;
+        })
+        .catch(error => {
         console.log(error)
       })     
     },
-    searchUsers () {
-      if (this.searchField.trim() === "") {
-        this.followingUsers = this.originalFollowingUsers
-        return
-      }
-      
-      let obj = this.originalFollowingUsers.filter(item => {
-        let arr = item.name.trim().toLowerCase().split(' ')        
-        return arr.includes(this.searchField.trim().toLowerCase()) || item.name.trim().toLowerCase() === this.searchField.trim().toLowerCase()
-      })      
-      this.followingUsers = obj     
-    }
   },
   mounted () {   
     this.getEmployees()
@@ -46,6 +49,7 @@ export default {
 </script>
 
 <style scoped lang="css">
-
-       
+  .btn-prev{
+    margin-right: 2px;
+  }
 </style>

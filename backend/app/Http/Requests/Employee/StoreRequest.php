@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
             'name' => ['string', 'required'],
             'middle_name' => ['string'],
             'last_name' => ['string', 'required'],
-            'cpf' => ['required', new CpfValidator(), 'unique:employees,cpf'],
+            'cpf' => ['required', new CpfValidator(), 'max:11', 'unique:employees,cpf', 'regex:/^[0-9]+$/'],
             'birth_date' => ['required', 'date'],
             'comorbidity' => ['required', 'boolean']
         ];

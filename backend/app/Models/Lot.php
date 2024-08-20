@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 
 class Lot extends Model
 {
@@ -28,5 +29,14 @@ class Lot extends Model
             ->using(EmployeeLot::class)
             ->withPivot(['lot_id', 'employee_id'])
             ->withTimestamps();
+    }
+
+    public function scopeFilterList(Builder $query, $options = [])
+    {
+        return $query->when(!empty($options['vaccine_id']), function ($query) use ($options) {
+            $query->where('vaccine_id', $options['vaccine_id']);
+        })->when(!empty($options['lot_identify']), function ($query) use ($options) {
+            $query->where('lot_identify', $options['lot_identify']);
+        });
     }
 }

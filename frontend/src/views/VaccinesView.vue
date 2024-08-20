@@ -5,7 +5,7 @@
         <VaccineList />
       </div>
       <div class="col-lg-6">
-        <VaccineItem />
+        <VaccineLot />
       </div>
     </div>
   </div>
@@ -13,15 +13,15 @@
 
 <script>
 import VaccineList from '@/components/vaccine/VaccineList.vue'
-import VaccineItem from '@/components/vaccine/VaccineItem.vue'
+import VaccineLot from '@/components/vaccine/VaccineLot.vue';
 
 export default {
   name: 'VacinnesView',
-  components: { VaccineList, VaccineItem }, 
+  components: { VaccineList, VaccineLot }, 
 }
 </script>
 
-<style scoped lang="sass">
+<style scoped lang="css">
 
 
 </style>
