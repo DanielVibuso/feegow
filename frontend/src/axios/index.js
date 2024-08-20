@@ -41,6 +41,12 @@ export default {
   updateVaccine: (vaccineId, vaccine) => {
     return axios.put(`/vaccine/${vaccineId}`, vaccine);
   },
+  attachVaccine: (employeeId, lotId, appliedAt) => {
+    return axios.post(`/employee-lot/employee/${employeeId}/lot/${lotId}`, {applied_at: appliedAt});
+  },
+  newLot: (vaccine_id, lot_identify, expiration) => {
+    return axios.post(`/lot`, {vaccine_id, lot_identify, expiration});
+  },
   getShots: (page, perPage, employeeId) => {
     return axios.get(`/employee-lot/${employeeId}/lot`, {
       params: {

@@ -18,10 +18,14 @@ class AuthController extends Controller
     {
     }
 
+
     /**
-     * @param LoginRequest $request
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * Login.
+     * 
+     * Esta api utiliza tokens JWT para autenticação.
+     * 
+     * @param request request
+     * @return json
      */
     public function login(LoginRequest $request)
     {
@@ -38,10 +42,11 @@ class AuthController extends Controller
         }
     }
 
+
     /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * Logout
+     * 
+     * Destrói o token por onde a requisição chegou, fazendo logout do usuário requisitante
      */
     public function logout(Request $request)
     {
@@ -57,6 +62,9 @@ class AuthController extends Controller
     }
 
     /**
+     * Esqueci a senha
+     * 
+     * Endpoint padrão para recuperação senha
      * @param ForgotPasswordRequest $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -75,6 +83,9 @@ class AuthController extends Controller
     }
 
     /**
+     * Atualizar a senha esquecida
+     * 
+     * Endpoint padrão para recuperar a senha em caso de ter solicitado a recuperação
      * @param UpdatePasswordRequest $request
      *
      * @return \Illuminate\Http\JsonResponse

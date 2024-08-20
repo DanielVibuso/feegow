@@ -43,12 +43,12 @@
           </div>
           <div class="form-group">
             <label for="comorbidity">Comorbidade</label>
-            <select name="comorbidity" id="comorbidity" v-model="$v.form.comorbidity.$model">
+            <select class="form-control" name="comorbidity" id="comorbidity" v-model="$v.form.comorbidity.$model">
               <option value="0">Não</option>
               <option value="1">Sim</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">
+          <button type="submit" class="btn btn-primary btn-block mt-2">
             Salvar
           </button>
         </div>

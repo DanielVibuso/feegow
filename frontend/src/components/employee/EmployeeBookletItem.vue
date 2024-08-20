@@ -4,8 +4,8 @@
       <ul>
         <li>Nome: {{ shot.vaccine }}</li>
         <li>lote: {{ shot.lot_identify }}</li>
-        <li>Data apĺicação: {{ shot.applied_at }}</li>
-        <li>proxima dose: {{ shot.next_shot || 'dose única'  }}</li>
+        <li>Data apĺicação: {{ formatDateBrazilian(shot.applied_at) }} </li>
+        <li>proxima dose: {{ formatDateBrazilian(shot.next_shot) || 'dose única'  }}</li>
         <li v-if="shot.next_shot">dose: {{ shot.shot_number }}</li>
       </ul>
   </div>

@@ -18,6 +18,11 @@ class LotController extends Controller
     {
     }
 
+    /**
+     * Cadastrar lote
+     * 
+     * Este endpoint é utilizado para cadastrar um novo lote
+     */
     public function store(StoreRequest $request)
     {
         try{
@@ -29,6 +34,12 @@ class LotController extends Controller
         }
     }
 
+    /**
+     * Listar lotes
+     * 
+     * Esse endpoint é utilizado para visualizar todos os lotes cadastrados, aceita os parametros de paginação já mencionados
+     * ex: per_page, page. Também é possível informar o lot_identify, campo que foi indexado para melhor performance.
+     */
     public function index(Request $request)
     {
         try{
@@ -40,6 +51,11 @@ class LotController extends Controller
         }
     }
 
+    /**
+     * Ver dados do lote
+     * 
+     * Este endpoint retorna os dados do lote informado pelo id
+     */
     public function show(String $id)
     {
         try{
@@ -53,6 +69,11 @@ class LotController extends Controller
         }
     }
 
+    /**
+     * Atualizar dados do lote
+     * 
+     * é possível atulizar os dados do lote com este endpoint
+     */
     public function update(String $id, UpdateRequest $request)
     {
         try{
@@ -66,6 +87,11 @@ class LotController extends Controller
         }
     }
 
+    /**
+     * Deletar lote
+     * 
+     * Remove o lote informado
+     */
     public function delete(String $id)
     {
         try{

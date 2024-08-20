@@ -5,6 +5,7 @@
         <li v-else class="list-group-item">intervalo reforço: dose única</li>
         <li class="list-group-item">
           <button class="btn btn-primary btn-sm btn-lot" @click="sendNotification">Ver lotes</button>
+          <button class="btn btn-primary btn-sm ms-1 btn-register-lot" @click="sendNotificationOpenModal">Registrar lote</button>
           <button class="btn btn-primary btn-sm btn-vaccine" @click="handleViewEdit(vaccine.id)">Editar vacina</button>
         </li>
     </ul>
@@ -20,7 +21,10 @@ export default {
     },
     handleViewEdit(vaccineId){
       this.$router.push({ name: 'vaccine-form', params: { id: vaccineId } })
-    }
+    },
+    sendNotificationOpenModal() {
+        this.$emitter.emit('newLotClicked', { vaccineId: this.vaccine.id });
+    },
   } 
 }
 </script>

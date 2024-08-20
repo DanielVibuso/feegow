@@ -1,11 +1,14 @@
-const globalMixins = {    
-  methods: { 
-    characterLimiter: function(text, numberOfCharacter) {
-      // Limiting the number of characters 
-      text = text.substring(numberOfCharacter, 0)
-      return text || ""        
-    },
-  }
-}
+import Vue from 'vue';
 
-export default globalMixins
+Vue.mixin({
+  methods: {
+    formatDateBrazilian(date) {
+      if (!date) return '';
+      return new Date(date).toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      });
+    }
+  }
+});

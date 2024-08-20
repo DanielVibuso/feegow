@@ -1,5 +1,5 @@
 <template>
-  <div class="footer fixed-bottom">
+  <div class="footer">
     <p>EmployeeVax - Feegow</p>
   </div>
 </template>
