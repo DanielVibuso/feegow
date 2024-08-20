@@ -46,7 +46,6 @@ export default {
       this.$refs['applyModal'].show()
     },
     handleCloseModal() {
-      console.log('metodo closeModal de dentro do modal')
       this.$emit('hide-modal');
     },
     async getLots(){

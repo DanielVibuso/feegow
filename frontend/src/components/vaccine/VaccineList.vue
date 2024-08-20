@@ -47,7 +47,6 @@ export default {
       })     
     },
     handleOpenModal(){
-      console.log('chegou no abrir modal')
       this.openModal = true
     },
     handleCloseModal(){

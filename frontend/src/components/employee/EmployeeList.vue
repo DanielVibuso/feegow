@@ -47,12 +47,10 @@ export default {
       })     
     },
     handleOpenModal(){
-      console.log('chegou no abrir modal')
       this.openModal = true
     },
     handleCloseModal(){
       this.openModal = false
-      console.log('this open modal', this.openModal)
     }
   },
   mounted () {   
