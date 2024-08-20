@@ -1,0 +1,872 @@
+_type: export
+__export_format: 4
+__export_date: 2024-08-20T23:58:42.520Z
+__export_source: insomnia.desktop.app:v9.3.3
+resources:
+  - _id: req_78194a37a9b04c26844634f26cd40d66
+    parentId: fld_f8be44bc4afa4a8d83f93a02af9a1476
+    modified: 1723924395616
+    created: 1723869619041
+    url: localhost:80/api/auth/login
+    name: Login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "admin@employeevax.com.br",
+        	"password": "qwe123"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_662a86da9c56435fab98e00a8831df9b
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_088fb692af2b4ebe9d11b5be52ce3486
+      - id: pair_1592aea0f76448988e2112ab90397704
+        name: accept
+        value: Application/json
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723869619041
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_f8be44bc4afa4a8d83f93a02af9a1476
+    parentId: fld_112f741c74f945c59e39e1fd896289b6
+    modified: 1723869616351
+    created: 1723869616351
+    name: auth
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1723869616351
+    _type: request_group
+  - _id: fld_112f741c74f945c59e39e1fd896289b6
+    parentId: wrk_5a1c20cfd20943cd930e1b8429c6fc5f
+    modified: 1723842454818
+    created: 1723842454818
+    name: EmployeeVax
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1723842454818
+    _type: request_group
+  - _id: wrk_5a1c20cfd20943cd930e1b8429c6fc5f
+    parentId: null
+    modified: 1721843737686
+    created: 1721843737686
+    name: personal.yaml
+    description: ""
+    scope: design
+    _type: workspace
+  - _id: req_18fa320f7a7e458f90bf373919cc1c8e
+    parentId: fld_dacdee9a30e24c409505b014abee918c
+    modified: 1724198063956
+    created: 1723866428114
+    url: localhost:80/api/employee
+    name: New employee
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Lorem",
+        	"middle_name": "Ipsum",
+        	"last_name": "Bar",
+        	 "cpf": "23961034079",
+        	"birth_date": "1995-05-03",
+        	"comorbidity": false
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_802a5a6755e04fe7831c5af4dc2775cf
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_971171c38fa745b48344500f87b4c08f
+      - id: pair_742fa581f4c64d8693a60a956d7ce84c
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_f7e829495cc846e1aaffebfc8f95878a
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867494091
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_dacdee9a30e24c409505b014abee918c
+    parentId: fld_112f741c74f945c59e39e1fd896289b6
+    modified: 1723867493182
+    created: 1723867483988
+    name: employee
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1723867483988
+    _type: request_group
+  - _id: req_d55fb19bf42e4d408ed6088bb7387d7c
+    parentId: fld_dacdee9a30e24c409505b014abee918c
+    modified: 1724198085431
+    created: 1723867877097
+    url: localhost:80/api/employee/62550126-9943-49db-89e2-aad617e850e7
+    name: update employee
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "teste update"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d3e68be629364df5980ed741fcc34350
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_bf3a3e1c9c9649bf80d1e6d2445019d6
+      - id: pair_388c5f526c1b4b288e5c0257e5ded087
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_5131c726c95e44719f7ae7765e028396
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867494041
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_91881ebca41049d8b4d82cf08f3deeab
+    parentId: fld_dacdee9a30e24c409505b014abee918c
+    modified: 1724109636636
+    created: 1723867493991
+    url: localhost:80/api/employee
+    name: get employees
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_ba7b4082848e4125b7f1e012178db9f0
+      - id: pair_3254c4d824ec4b459fe568bd128c18e3
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_8da1f5a2b24c4f04b48a89fa558d8b79
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867493991
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_58b73addbf75481baba0644ea59291f2
+    parentId: fld_dacdee9a30e24c409505b014abee918c
+    modified: 1724104027845
+    created: 1723867624891
+    url: localhost:80/api/employee/c8af4de2-9b86-4c35-805e-8584be8b3516
+    name: get employee by id
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_aec95463d6f847809042f768272e034d
+      - id: pair_1c5ec1725eaa414c80a074797fcf7b74
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_75061649722e4ab0a9f39986900fdc1f
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1722894862144.5
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_958cfd3ff6e2489aab991c7d2efd1a9f
+    parentId: fld_dacdee9a30e24c409505b014abee918c
+    modified: 1723921251618
+    created: 1723868056867
+    url: localhost:80/api/employee/d7dd5774-1bbb-4b86-be20-fb3562073907
+    name: delete employee
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_6cd6ade03bdb4d2c84e71f0422bf97c9
+      - id: pair_793faffa20e6485e9775f2cffcc8cb0e
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1722408546221.25
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_26baa71f2cdf47c39901e3a5ad828ebe
+    parentId: fld_980738c98e484bd1a22463e6beb9c82b
+    modified: 1724198108982
+    created: 1723951170682
+    url: localhost:80/api/vaccine
+    name: New vaccine
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Vaxine",
+        	"booster_interval": 120
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_802a5a6755e04fe7831c5af4dc2775cf
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_971171c38fa745b48344500f87b4c08f
+      - id: pair_742fa581f4c64d8693a60a956d7ce84c
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_f7e829495cc846e1aaffebfc8f95878a
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867494091
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_980738c98e484bd1a22463e6beb9c82b
+    parentId: fld_112f741c74f945c59e39e1fd896289b6
+    modified: 1723951170680
+    created: 1723951170680
+    name: vaccine
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1723854969403
+    _type: request_group
+  - _id: req_2c7f9a96be354813934ba73ad243b8e9
+    parentId: fld_980738c98e484bd1a22463e6beb9c82b
+    modified: 1724163101270
+    created: 1723951170686
+    url: localhost:80/api/vaccine/c393d1ba-dd94-41d0-ab25-d819ad006891
+    name: update vaccine
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"booster_interval": 50
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d3e68be629364df5980ed741fcc34350
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_bf3a3e1c9c9649bf80d1e6d2445019d6
+      - id: pair_388c5f526c1b4b288e5c0257e5ded087
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_5131c726c95e44719f7ae7765e028396
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867494041
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d768079d2f814581a1d0db45a71f0b02
+    parentId: fld_980738c98e484bd1a22463e6beb9c82b
+    modified: 1723955137520
+    created: 1723951170684
+    url: localhost:80/api/vaccine
+    name: get vaccine
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_ba7b4082848e4125b7f1e012178db9f0
+      - id: pair_3254c4d824ec4b459fe568bd128c18e3
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_8da1f5a2b24c4f04b48a89fa558d8b79
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867493991
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_5e713af2dd9f48be904494dbbb13c8e6
+    parentId: fld_980738c98e484bd1a22463e6beb9c82b
+    modified: 1723955144387
+    created: 1723951170685
+    url: localhost:80/api/vaccine/d7dd5774-1bbb-4b86-be20-fb3562073907
+    name: get vaccine by id
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_aec95463d6f847809042f768272e034d
+      - id: pair_1c5ec1725eaa414c80a074797fcf7b74
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_75061649722e4ab0a9f39986900fdc1f
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1722894862144.5
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c9e50ae1c32849e0b8c8f01c5e600ede
+    parentId: fld_980738c98e484bd1a22463e6beb9c82b
+    modified: 1723955148857
+    created: 1723951170688
+    url: localhost:80/api/vaccine/d7dd5774-1bbb-4b86-be20-fb3562073907
+    name: delete vaccine
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_6cd6ade03bdb4d2c84e71f0422bf97c9
+      - id: pair_793faffa20e6485e9775f2cffcc8cb0e
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1722408546221.25
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_0240531863d54a8591c006a530d627f4
+    parentId: fld_76b0c6adb61d4b1cbc2ab527b3440eee
+    modified: 1724198126319
+    created: 1723955011199
+    url: localhost:80/api/lot
+    name: New lot
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"vaccine_id": "02950f81-d1b6-4ffe-b9b1-fc31910de3f2",
+        	"lot_identify": "qwe123",
+        	"expiration": "2025-05-01"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_802a5a6755e04fe7831c5af4dc2775cf
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_971171c38fa745b48344500f87b4c08f
+      - id: pair_742fa581f4c64d8693a60a956d7ce84c
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_f7e829495cc846e1aaffebfc8f95878a
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867494091
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_76b0c6adb61d4b1cbc2ab527b3440eee
+    parentId: fld_112f741c74f945c59e39e1fd896289b6
+    modified: 1723955011198
+    created: 1723955011198
+    name: lot
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1723848712110.5
+    _type: request_group
+  - _id: req_e20508174e334223b8fdd2650946bfc8
+    parentId: fld_76b0c6adb61d4b1cbc2ab527b3440eee
+    modified: 1724198137056
+    created: 1723955011202
+    url: localhost:80/api/lot/d7dd5774-1bbb-4b86-be20-fb3562073907
+    name: update lot
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"lot_identify": "LOTE200"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d3e68be629364df5980ed741fcc34350
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_bf3a3e1c9c9649bf80d1e6d2445019d6
+      - id: pair_388c5f526c1b4b288e5c0257e5ded087
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_5131c726c95e44719f7ae7765e028396
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867494041
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_10e32d83bf8649c1898d4247ca34fb5e
+    parentId: fld_76b0c6adb61d4b1cbc2ab527b3440eee
+    modified: 1723955195278
+    created: 1723955011200
+    url: localhost:80/api/lot
+    name: get lot
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_ba7b4082848e4125b7f1e012178db9f0
+      - id: pair_3254c4d824ec4b459fe568bd128c18e3
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_8da1f5a2b24c4f04b48a89fa558d8b79
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867493991
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_5255fddecf6349ab8d027d9e8bda747f
+    parentId: fld_76b0c6adb61d4b1cbc2ab527b3440eee
+    modified: 1723955200322
+    created: 1723955011201
+    url: localhost:80/api/lot/d7dd5774-1bbb-4b86-be20-fb3562073907
+    name: get lot by id
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_aec95463d6f847809042f768272e034d
+      - id: pair_1c5ec1725eaa414c80a074797fcf7b74
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_75061649722e4ab0a9f39986900fdc1f
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1722894862144.5
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f8321dce129741d39e9d5ab1143cdd0c
+    parentId: fld_76b0c6adb61d4b1cbc2ab527b3440eee
+    modified: 1723955205994
+    created: 1723955011203
+    url: localhost:80/api/lot/d7dd5774-1bbb-4b86-be20-fb3562073907
+    name: delete lot
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_6cd6ade03bdb4d2c84e71f0422bf97c9
+      - id: pair_793faffa20e6485e9775f2cffcc8cb0e
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1722408546221.25
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6d10ca595472491e9dea97050f0c3175
+    parentId: fld_9f2168528e3244b5a7a16a13692baee2
+    modified: 1724123722898
+    created: 1723996178051
+    url: localhost:80/api/employee-lot/employee/29d17ae1-7122-42a6-9c5b-3205374d65e4/lot/079c94a3-67bf-4a3a-855e-ae8b3f1ae366
+    name: Attach employee Lot
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"applied_at": "2024-04-01"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_802a5a6755e04fe7831c5af4dc2775cf
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_971171c38fa745b48344500f87b4c08f
+      - id: pair_742fa581f4c64d8693a60a956d7ce84c
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_f7e829495cc846e1aaffebfc8f95878a
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867494091
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_9f2168528e3244b5a7a16a13692baee2
+    parentId: fld_112f741c74f945c59e39e1fd896289b6
+    modified: 1723996178041
+    created: 1723996178041
+    name: shoots(employee_lot)
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1723845583464.25
+    _type: request_group
+  - _id: req_76fa2fa9b38f4ac88ce1f31dbd7ec1b4
+    parentId: fld_9f2168528e3244b5a7a16a13692baee2
+    modified: 1724007860021
+    created: 1723996178054
+    url: localhost:80/api/employee-lot/employee/c8af4de2-9b86-4c35-805e-8584be8b3516/lot/079c94a3-67bf-4a3a-855e-ae8b3f1ae366
+    name: Detach Employee Lot
+    description: ""
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d3e68be629364df5980ed741fcc34350
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_bf3a3e1c9c9649bf80d1e6d2445019d6
+      - id: pair_388c5f526c1b4b288e5c0257e5ded087
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_5131c726c95e44719f7ae7765e028396
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867494041
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_3dc8a088060641abb0c54f4e0bb41593
+    parentId: fld_9f2168528e3244b5a7a16a13692baee2
+    modified: 1724007113737
+    created: 1723996178052
+    url: localhost:80/api/employee-lot/c8af4de2-9b86-4c35-805e-8584be8b3516/lot
+    name: get employee Lots(shoots)
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_ba7b4082848e4125b7f1e012178db9f0
+      - id: pair_3254c4d824ec4b459fe568bd128c18e3
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_8da1f5a2b24c4f04b48a89fa558d8b79
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1723867493991
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fe849ad192d14adfa4f40d8aa2d0801b
+    parentId: fld_9f2168528e3244b5a7a16a13692baee2
+    modified: 1723996307365
+    created: 1723996178053
+    url: localhost:80/api/lot/d7dd5774-1bbb-4b86-be20-fb3562073907
+    name: Update employee lot (shoot)
+    description: ""
+    method: PUT
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.3.3
+        id: pair_aec95463d6f847809042f768272e034d
+      - id: pair_1c5ec1725eaa414c80a074797fcf7b74
+        name: Accept
+        value: Application/json
+        description: ""
+        disabled: false
+      - id: pair_75061649722e4ab0a9f39986900fdc1f
+        name: Authorization
+        value: "{{ _.token }}"
+        description: ""
+        disabled: false
+    authentication: {}
+    metaSortKey: -1722894862144.5
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_b92bc19cb67bd228b50d0eaa42b1c6516f174aa6
+    parentId: wrk_5a1c20cfd20943cd930e1b8429c6fc5f
+    modified: 1723999550909
+    created: 1721843737693
+    name: Base Environment
+    data:
+      token: Bearer
+        77d5c0b4-f418-4278-9c75-8aa02f289fe5|UB4iV7V89oFQbJGbCSyQwPvzTSW017S2myoOuZ0Tb3b39d6f
+    dataPropertyOrder:
+      "&":
+        - token
+    color: null
+    isPrivate: false
+    metaSortKey: 1721843737693
+    _type: environment
+  - _id: jar_b92bc19cb67bd228b50d0eaa42b1c6516f174aa6
+    parentId: wrk_5a1c20cfd20943cd930e1b8429c6fc5f
+    modified: 1721964421353
+    created: 1721843737695
+    name: Default Jar
+    cookies:
+      - key: sf_redirect
+        value: deleted
+        expires: 2023-07-27T03:27:00.000Z
+        maxAge: 0
+        domain: localhost
+        path: /
+        httpOnly: true
+        hostOnly: true
+        creation: 2024-07-24T19:09:43.678Z
+        lastAccessed: 2024-07-26T03:27:01.353Z
+        id: 738847c6-e933-47e8-b1f0-73568e7db76e
+    _type: cookie_jar
+  - _id: spc_ee4ffb7870454f5fa323053047e73a13
+    parentId: wrk_5a1c20cfd20943cd930e1b8429c6fc5f
+    modified: 1722002982874
+    created: 1721843737689
+    fileName: personal.yaml
+    contents: ""
+    contentType: yaml
+    _type: api_spec
