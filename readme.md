@@ -48,6 +48,8 @@ email: admin@employeevax.com.br<br>
 password: qwe123<br>
 
 
+PS: npm install is run when the container with the node goes up, this may take a few minutes.
+
 The api will be running on: http://localhost:80  <br>
 Swagger Documentation: http://localhost:80/api<br>
 The frontend will be running on: http://localhost:8080/ <br>
@@ -97,12 +99,13 @@ Para rodar este projeto, basta abrir seu terminal na pasta raiz e executar:<br>
 3 - docker-compose exec app_feegow composer install<br>
 4 - docker-compose exec app_feegow php artisan migrate<br>
 5 - docker-compose exec app_feegow php artisan db:seed<br>
-6 - docker-compose exec node npm install<br>
 
 você pode rodar os testes que foram incluídos com o comando:<br>
 
 docker-compose exec app_feegow php artisan test <br>
 Usuário administrador padrão:<br>
+
+PS: O npm install é executado quando o container com o node sobe, isso pode demorar alguns minutos.
 
 Email: admin@employeevax.com.br<br>
 Senha: qwe123<br>
